@@ -8,14 +8,17 @@
     if (isGithub) {
       addition = "https://lightslicergp.github.io/Website-beta";
 
-      document.querySelectorAll("script").forEach((element) => {
-        element.src = element.src.replace("https://lightslicergp.github.io", addition);
+      document.querySelectorAll("script[src]").forEach((element) => {
+        // element.src = element.src.replace("https://lightslicergp.github.io", addition);
+        element.src = addition + element.src.replace("https://lightslicergp.github.io", "");
       });
-      document.querySelectorAll("link").forEach((element) => {
-        element.href = element.src.replace("https://lightslicergp.github.io", addition);
+      document.querySelectorAll("link[href]").forEach((element) => {
+        // element.href = element.src.replace("https://lightslicergp.github.io", addition);
+        element.href = addition + element.href.replace("https://lightslicergp.github.io", "");
       });
       document.querySelectorAll("img[src]").forEach((element) => {
-        element.src = element.src.replace("https://lightslicergp.github.io", addition);
+        // element.src = element.src.replace("https://lightslicergp.github.io", addition);
+        element.src = addition + element.src.replace("https://lightslicergp.github.io", "");
       });
     }
   </script>
