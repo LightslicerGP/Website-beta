@@ -2,13 +2,22 @@
 
 <head>
   <script>
-    // const base = window.location.origin + "/" + window.location.pathname.split("/")[1] + "/";
-    // console.log(base);
-    // console.log(window.location.origin);
-    // console.log(window.location.pathname);
-
     isGithub = window.document.URL.startsWith("https://lightslicergp.github.io/Website-beta/");
-    console.log(isGithub);
+    // console.log(isGithub);
+
+    if (isGithub) {
+      addition = "/Website-beta";
+
+      document.querySelectorAll("script[src]").forEach((element) => {
+        element.src = addition + element.src;
+      });
+      document.querySelectorAll("link[href]").forEach((element) => {
+        element.src = addition + element.href;
+      });
+      document.querySelectorAll("img[src]").forEach((element) => {
+        element.src = addition + element.src;
+      });
+    }
   </script>
   <title>Home Page | LightslicerGP</title>
   <meta name="description" content="This is the Home page, go ahead and explore what I have made and what might come in the future!" />
