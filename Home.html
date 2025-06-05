@@ -143,7 +143,7 @@
       });
       document.querySelectorAll("link[href]").forEach((element) => {
         if (element.href.startsWith("https://lightslicergp.github.io")) {
-          element.href = addition + element.src.replace("https://lightslicergp.github.io", "");
+          element.href = addition + element.href.replace("https://lightslicergp.github.io", "");
         }
       });
       document.querySelectorAll("img[src]").forEach((element) => {
