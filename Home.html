@@ -2,10 +2,13 @@
 
 <head>
   <script>
-    const base = window.location.origin + "/" + window.location.pathname.split("/")[1] + "/";
-    console.log(base);
-    console.log(window.location.origin);
-    console.log(window.location.pathname);
+    // const base = window.location.origin + "/" + window.location.pathname.split("/")[1] + "/";
+    // console.log(base);
+    // console.log(window.location.origin);
+    // console.log(window.location.pathname);
+
+    isGithub = window.document.URL.startsWith("https://lightslicergp.github.io/Website-beta/");
+    console.log(isGithub);
   </script>
   <title>Home Page | LightslicerGP</title>
   <meta name="description" content="This is the Home page, go ahead and explore what I have made and what might come in the future!" />
