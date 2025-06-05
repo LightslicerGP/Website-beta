@@ -1,27 +1,6 @@
 <!DOCTYPE html>
 
 <head>
-  <script>
-    isGithub = window.document.URL.startsWith("https://lightslicergp.github.io/Website-beta/");
-    // console.log(isGithub);
-
-    if (isGithub) {
-      addition = "https://lightslicergp.github.io/Website-beta";
-
-      document.querySelectorAll("script[src]").forEach((element) => {
-        // element.src = element.src.replace("https://lightslicergp.github.io", addition);
-        element.src = addition + element.src.replace("https://lightslicergp.github.io", "");
-      });
-      document.querySelectorAll("link[href]").forEach((element) => {
-        // element.href = element.src.replace("https://lightslicergp.github.io", addition);
-        element.href = addition + element.href.replace("https://lightslicergp.github.io", "");
-      });
-      document.querySelectorAll("img[src]").forEach((element) => {
-        // element.src = element.src.replace("https://lightslicergp.github.io", addition);
-        element.src = addition + element.src.replace("https://lightslicergp.github.io", "");
-      });
-    }
-  </script>
   <title>Home Page | LightslicerGP</title>
   <meta name="description" content="This is the Home page, go ahead and explore what I have made and what might come in the future!" />
   <meta
@@ -148,4 +127,25 @@
   <script defer src="/common/InjectElement.js"></script>
   <script defer src="/common/Common.js"></script>
   <script defer src="/Home.js"></script>
+  <script>
+    isGithub = window.document.URL.startsWith("https://lightslicergp.github.io/Website-beta/");
+    // console.log(isGithub);
+
+    if (isGithub) {
+      addition = "https://lightslicergp.github.io/Website-beta";
+
+      document.querySelectorAll("script[src]").forEach((element) => {
+        // element.src = element.src.replace("https://lightslicergp.github.io", addition);
+        element.src = addition + element.src.replace("https://lightslicergp.github.io", "");
+      });
+      document.querySelectorAll("link[href]").forEach((element) => {
+        // element.href = element.src.replace("https://lightslicergp.github.io", addition);
+        element.href = addition + element.href.replace("https://lightslicergp.github.io", "");
+      });
+      document.querySelectorAll("img[src]").forEach((element) => {
+        // element.src = element.src.replace("https://lightslicergp.github.io", addition);
+        element.src = addition + element.src.replace("https://lightslicergp.github.io", "");
+      });
+    }
+  </script>
 </body>
