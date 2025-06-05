@@ -1,0 +1,277 @@
+function injectElements() {
+  document.body.insertAdjacentHTML(
+    "afterbegin",
+    `<div id="loader">
+    <img src="/images/Loading.gif" />
+  </div>
+
+  <div class="grid-template hidden" id="tempcolumns">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p class="remove" id="temp-responsive"></p>
+
+  <nav class="glass-btn" id="portrait-nav">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="m-nav-icon"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#000000"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+      <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+      <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="m-nav-icon"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#000000"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path
+        d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
+      />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="m-nav-icon"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#000000"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 9m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0" />
+      <path d="M12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889" />
+      <path d="M6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889" />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="m-nav-icon"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#000000"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h11" />
+      <path d="M8 8l4 0" />
+      <path d="M8 12l4 0" />
+      <path d="M8 16l4 0" />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="m-nav-icon"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#000000"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" />
+      <path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3" />
+      <path d="M9.7 17l4.6 0" />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="m-nav-icon"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#000000"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+      <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="m-nav-icon"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#000000"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+      <path d="M3 7l9 6l9 -6" />
+    </svg>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      id="nav-toggle"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#ffffff"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 5l0 14" />
+      <path d="M5 12l14 0" />
+    </svg>
+  </nav>
+  <nav class="glass-btn" id="landscape-nav">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="m-nav-icon"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#000000"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+      <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+      <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="m-nav-icon"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#000000"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path
+        d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
+      />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="m-nav-icon"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#000000"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 9m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0" />
+      <path d="M12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889" />
+      <path d="M6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889" />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="m-nav-icon"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#000000"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h11" />
+      <path d="M8 8l4 0" />
+      <path d="M8 12l4 0" />
+      <path d="M8 16l4 0" />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="m-nav-icon"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#000000"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" />
+      <path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3" />
+      <path d="M9.7 17l4.6 0" />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="m-nav-icon"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#000000"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+      <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="m-nav-icon"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#000000"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+      <path d="M3 7l9 6l9 -6" />
+    </svg>
+  </nav>
+  <button class="glass-btn" id="to-top-btn" style="display: none" onclick="toTop()">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      id="to-top-icon"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#000000"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 10l0 10" />
+      <path d="M12 10l4 4" />
+      <path d="M12 10l-4 4" />
+      <path d="M4 4l16 0" />
+    </svg>
+  </button>`
+  );
+  /* doesnt work with defer or anything 6.4.25 */
+  /* document.body.insertAdjacentHTML(
+    "beforeend",
+    `<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal@4"></script>`
+  ); */
+}

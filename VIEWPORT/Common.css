@@ -1,0 +1,159 @@
+:root {
+  --accent: #0080ff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-color: #1a1a1a;
+    --nav_color: #404040;
+    --pure-opposite: #ffffff;
+    --themed-opposite: #e6e6e6;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --main-color: #e6e6e6;
+    --nav_color: #ffffff;
+    --pure-opposite: #000000;
+    --themed-opposite: #1a1a1a;
+  }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background: var(--main-color);
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: none;
+}
+
+svg {
+  width: 12vw;
+  height: 12vw;
+  stroke: var(--themed-opposite);
+}
+
+a {
+  display: contents;
+}
+
+.glass-btn {
+  background-color: color-mix(in srgb, var(--nav_color), transparent 75%);
+  fill-opacity: 5%;
+  outline: 0.75vw solid var(--nav_color);
+  outline-offset: -0.75vw;
+  backdrop-filter: blur(2px);
+}
+
+@media (orientation: portrait) {
+  nav {
+    position: fixed;
+    border-radius: 6vw;
+    right: 6vw;
+    bottom: 6vw;
+    width: 19vw;
+    height: 19vw;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    transition: width 0.5s, height 0.5s;
+  }
+
+  nav#portrait-nav {
+    display: grid;
+  }
+  nav#landscape-nav {
+    display: none;
+  }
+
+  nav.active {
+    width: 88vw;
+    height: 36vw;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 3vw;
+    row-gap: 6vw;
+  }
+
+  .m-nav-icon {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  nav.active > #nav-toggle {
+    rotate: 135deg;
+  }
+
+  nav.active > .m-nav-icon {
+    display: block;
+    opacity: 1;
+  }
+
+  nav > #nav-toggle {
+    position: fixed;
+    right: 3.5vw;
+    bottom: 3.5vw;
+    transition: rotate 0.5s;
+  }
+
+  #to-top-btn {
+    position: fixed;
+    border-radius: 6vw;
+    right: 6vw;
+    bottom: 30vw;
+    width: 19vw;
+    height: 19vw;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    transition: width 0.5s, height 0.5s;
+  }
+
+  /* temp */
+  #columns {
+    display: grid;
+    grid-template-columns: repeat(4, 19vw);
+    column-gap: 4vw;
+    justify-content: center;
+  }
+
+  #columns > div {
+    height: 100vh;
+    background-color: var(--pure-opposite);
+    opacity: 5%;
+  }
+}
+
+@media (orientation: landscape) {
+  nav#portrait-nav {
+    display: none;
+  }
+  nav#landscape-nav {
+    display: flex;
+  }
+}
+
+/* temp */
+.hidden {
+  display: none !important;
+}
+
+img {
+  width: 100vw;
+  height: 120vh;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
