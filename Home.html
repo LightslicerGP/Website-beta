@@ -136,20 +136,20 @@
 
       document.querySelectorAll("script[src]").forEach((element) => {
         // element.src = element.src.replace("https://lightslicergp.github.io", addition);
-        if (element.src.startsWith("/")) {
-          element.src = addition + element.src;
+        if (element.src.startsWith("https://lightslicergp.github.io")) {
+          element.src = addition + element.src.replace("https://lightslicergp.github.io", "");
         }
       });
       document.querySelectorAll("link[href]").forEach((element) => {
         // element.href = element.src.replace("https://lightslicergp.github.io", addition);
-        if (element.href.startsWith("/")) {
-          element.href = addition + element.src;
+        if (element.href.startsWith("https://lightslicergp.github.io")) {
+          element.href = addition + element.src.replace("https://lightslicergp.github.io", "");
         }
       });
       document.querySelectorAll("img[src]").forEach((element) => {
         // element.src = element.src.replace("https://lightslicergp.github.io", addition);
-        if (element.src.startsWith("/")) {
-          element.src = addition + element.src;
+        if (element.src.startsWith("https://lightslicergp.github.io")) {
+          element.src = addition + element.src.replace("https://lightslicergp.github.io", "");
         }
       });
     }
