@@ -6,16 +6,16 @@
     // console.log(isGithub);
 
     if (isGithub) {
-      addition = "/Website-beta";
+      addition = "https://lightslicergp.github.io/Website-beta";
 
-      document.querySelectorAll("script[src]").forEach((element) => {
-        element.src = addition + element.src;
+      document.querySelectorAll("script").forEach((element) => {
+        element.src = element.src.replace("https://lightslicergp.github.io", addition);
       });
-      document.querySelectorAll("link[href]").forEach((element) => {
-        element.src = addition + element.href;
+      document.querySelectorAll("link").forEach((element) => {
+        element.href = element.src.replace("https://lightslicergp.github.io", addition);
       });
       document.querySelectorAll("img[src]").forEach((element) => {
-        element.src = addition + element.src;
+        element.src = element.src.replace("https://lightslicergp.github.io", addition);
       });
     }
   </script>
