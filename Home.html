@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 
 <head>
+  <script>
+    isGithub = window.document.URL.startsWith("https://lightslicergp.github.io/Website-beta/");
+    if (isGithub) {
+      document.write('<base href="/Website-beta/">');
+    }
+  </script>
+
   <title>Home Page | LightslicerGP</title>
   <meta name="description" content="This is the Home page, go ahead and explore what I have made and what might come in the future!" />
   <meta
@@ -127,30 +134,4 @@
   <script defer src="/common/InjectElement.js"></script>
   <script defer src="/common/Common.js"></script>
   <script defer src="/Home.js"></script>
-  <script>
-    isGithub = window.document.URL.startsWith("https://lightslicergp.github.io/Website-beta/");
-    // console.log(isGithub);
-
-    if (isGithub) {
-      addition = "/Website-beta";
-
-      document.querySelectorAll("script[src]").forEach((element) => {
-        console.log(element);
-        console.log(element.src);
-        if (element.src.startsWith("https://lightslicergp.github.io")) {
-          element.src = addition + element.src.replace("https://lightslicergp.github.io", "");
-        }
-      });
-      document.querySelectorAll("link[href]").forEach((element) => {
-        if (element.href.startsWith("https://lightslicergp.github.io")) {
-          element.href = addition + element.href.replace("https://lightslicergp.github.io", "");
-        }
-      });
-      document.querySelectorAll("img[src]").forEach((element) => {
-        if (element.src.startsWith("https://lightslicergp.github.io")) {
-          element.src = addition + element.src.replace("https://lightslicergp.github.io", "");
-        }
-      });
-    }
-  </script>
 </body>
