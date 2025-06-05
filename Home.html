@@ -132,19 +132,25 @@
     // console.log(isGithub);
 
     if (isGithub) {
-      addition = "https://lightslicergp.github.io/Website-beta";
+      addition = "/Website-beta";
 
       document.querySelectorAll("script[src]").forEach((element) => {
         // element.src = element.src.replace("https://lightslicergp.github.io", addition);
-        element.src = addition + element.src.replace("https://lightslicergp.github.io", "");
+        if (element.src.startsWith("/")) {
+          element.src = addition + element.src;
+        }
       });
       document.querySelectorAll("link[href]").forEach((element) => {
         // element.href = element.src.replace("https://lightslicergp.github.io", addition);
-        element.href = addition + element.href.replace("https://lightslicergp.github.io", "");
+        if (element.href.startsWith("/")) {
+          element.href = addition + element.src;
+        }
       });
       document.querySelectorAll("img[src]").forEach((element) => {
         // element.src = element.src.replace("https://lightslicergp.github.io", addition);
-        element.src = addition + element.src.replace("https://lightslicergp.github.io", "");
+        if (element.src.startsWith("/")) {
+          element.src = addition + element.src;
+        }
       });
     }
   </script>
