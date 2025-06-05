@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 
 <head>
+  <script>
+    const pathPrefix = window.location.pathname.split("/")[1] === "website-beta" ? "/website-beta/" : "/";
+    // Update all <script src> tags
+    document.querySelectorAll("script[src]").forEach((el) => {
+      el.src = pathPrefix + el.getAttribute("src").replace(/^\/?/, "");
+    });
+
+    // Update all <link href> tags (CSS)
+    document.querySelectorAll("link[href]").forEach((el) => {
+      el.href = pathPrefix + el.getAttribute("href").replace(/^\/?/, "");
+    });
+
+    // Update all <img src> tags
+    document.querySelectorAll("img[src]").forEach((el) => {
+      el.src = pathPrefix + el.getAttribute("src").replace(/^\/?/, "");
+    });
+
+    // Optional: other tags like <a href> or custom data-src, etc.
+  </script>
   <title>Home Page | LightslicerGP</title>
   <meta name="description" content="This is the Home page, go ahead and explore what I have made and what might come in the future!" />
   <meta
@@ -70,7 +89,7 @@
     <div id="s4Carousel">
       <div class="s4CarouselItem">
         <!-- <h1 class="mcItemTitle">SimplyCubed</h1> -->
-          <img class="s4Image iconRaw" loading="lazy" src="/images/home/SimplyCubed_Monument.webp" />
+        <img class="s4Image iconRaw" loading="lazy" src="/images/home/SimplyCubed_Monument.webp" />
         <!-- <p class="mcItemDescription">A simple texture pack that gets straight to the point</p> -->
       </div>
       <div class="s4CarouselItem">
