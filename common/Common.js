@@ -1,13 +1,10 @@
-
-
 // inject navbar and to-top button 6.4.25
-injectElements();
-
+// injectElements();
 
 // load animation 12.11.23
 window.addEventListener("load", function () {
-  const loader = document.getElementById("loader");
-  loader.classList.add("remove");
+  // document.getElementById("loader").className += " hidden";
+  document.getElementById("loader").style.opacity = "0";
   setTimeout(function () {
     loader.remove();
   }, 1000);
@@ -42,6 +39,10 @@ let to_top = document.getElementById("to-top-btn");
 window.onscroll = function () {
   scrollFunction();
 };
+
+window.addEventListener("resize", () => setTimeout(() => scrollFunction(), 500));
+
+scrollFunction();
 
 function scrollFunction() {
   if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
@@ -101,6 +102,6 @@ function toTop() {
 document.querySelectorAll(".iconRaw").forEach((icon) => {
   icon.addEventListener("click", () => {
     // console.log("Icon clicked:", icon.src);
-    window.open(icon.src.replace("/images/", "/images_raw/").replace(".webp", ".png"), "_self");
+    window.open(icon.src.replace("images/", "images_raw/").replace(".webp", ".png"), "_self");
   });
 });

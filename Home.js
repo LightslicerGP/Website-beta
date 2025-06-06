@@ -216,12 +216,4 @@ var flkty2 = new Flickity("#s5Carousel", {
   // lazyLoadEager: 2,
 });
 
-// mabye make this a general function that attacks .ImgReplace classed images? 6.5.25
-document.querySelectorAll(".s5Icon").forEach((icon) => {
-  icon.addEventListener("click", () => {
-    // console.log("Icon clicked:", icon.src);
-    window.open(icon.src.replace("/images/", "/images_raw/").replace(".webp", ".png"), "_self");
-  });
-});
-
 ScrollReveal().reveal(".s5Description");

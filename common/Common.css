@@ -32,19 +32,19 @@
 
 @font-face {
   font-family: "Product Sans";
-  src: url("/common/Font/Product\ Sans.ttf");
+  src: url("Font/Product\ Sans.ttf");
   font-weight: normal;
 }
 
 @font-face {
   font-family: "Product Sans";
-  src: url("/common/Font/Product\ Sans\ Bold.ttf");
+  src: url("Font/Product\ Sans\ Bold.ttf");
   font-weight: bold;
 }
 
 @font-face {
   font-family: "Monocraft";
-  src: url("/common/Font/Monocraft.ttf");
+  src: url("Font/Monocraft.ttf");
   font-weight: normal;
 }
 
@@ -383,6 +383,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   background: #201e1e;
+  transition: opacity 1s;
 }
 
 #loader img {

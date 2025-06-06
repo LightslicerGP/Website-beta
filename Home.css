@@ -56,7 +56,7 @@
   #s2LiveData {
     grid-column: 1 / span 4;
     border-radius: calc(48 / 300 * 100vw);
-    background-image: url("/images/home/S20\ Wallpaper.webp");
+    background-image: url("images/home/S20\ Wallpaper.webp");
     background-size: 100vmax;
     background-attachment: fixed;
     /* background-attachment: scroll; */
