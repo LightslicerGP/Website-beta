@@ -108,10 +108,18 @@ a:hover {
 .glass-btn {
   background-color: color-mix(in srgb, var(--nav-color), transparent 75%);
   fill-opacity: 5%;
-  outline: 4px solid var(--nav-color);
-  outline-offset: -4px;
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), inset 0px 0px 16px 0px color-mix(in srgb, var(--nav-color), transparent 15%);
+
+  /* outline: 4px solid color-mix(in srgb, var(--nav-color), transparent 75%); */
+  /* outline-offset: -4px; */
+  /* border: 4px solid color-mix(in srgb, var(--nav-color), transparent 75%); */
+  /* box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); */
+}
+
+.glass-btn-unfocused {
+  opacity: 0.25;
 }
 
 .grid-template {
@@ -147,9 +155,11 @@ a:hover {
     --nav-icon-width: 10vw;
     /* ((100vw - ((var(--margin) * 2) + (var(--gutter) * 3))) / 4) width of one column */
     /* --column-width: calc((100vw - ((var(--margin) * 2) + (var(--gutter) * 3))) / 4); */
+    --nav-icon-width: calc(var(--column-width) / 2);
     --column-width: calc((100vw - ((var(--margin) * 2) + (var(--gutter) * (var(--columns) - 1)))) / (var(--columns)));
     /* ((var(--column-width) - var(--nav-icon-width)) / 2) "padding" of the nav icon */
-    --nav-icon-padding: calc((var(--column-width) - var(--nav-icon-width)) / 2);
+    /* --nav-icon-padding: calc((var(--column-width) - var(--nav-icon-width)) / 2); */
+    --nav-icon-padding: calc(var(--column-width) / 4);
   }
 
   .grid-template {
@@ -162,12 +172,14 @@ a:hover {
   }
 
   body {
-    padding-bottom: 128px;
+    padding-bottom: calc((var(--margin) * 2) + (var(--column-width) * 2));
   }
 
   nav {
     position: fixed;
     z-index: 1000;
+    /* it dont work */
+    transition: width 0.5s, height 0.5s, opacity 0.5s;
   }
 
   nav#portrait-nav {
@@ -178,7 +190,7 @@ a:hover {
   }
 
   nav#portrait-nav {
-    border-radius: calc(20 / 300 * 100vw);
+    border-radius: calc(var(--column-width) / 2);
     right: var(--margin);
     bottom: var(--margin);
     width: var(--column-width);
@@ -189,8 +201,6 @@ a:hover {
     /* align-content: center; */
     align-content: end;
     align-items: center;
-    /* it dont work */
-    transition: width 0.5s, height 0.5s;
   }
 
   nav#portrait-nav > #nav-toggle {
@@ -201,7 +211,7 @@ a:hover {
     height: var(--nav-icon-width);
   }
 
-  nav#portrait-nav > .m-nav-icon {
+  nav#portrait-nav > *:not(:last-child) {
     /* display: none; */
     opacity: 0;
     transition: opacity 0.5s;
@@ -230,12 +240,12 @@ a:hover {
     position: initial;
   }
 
-  nav#portrait-nav.active > .m-nav-icon {
+  nav#portrait-nav.active > *:not(:last-child) {
     display: block;
     opacity: 1;
   }
 
-  nav#portrait-nav.active > svg {
+  nav#portrait-nav.active > * {
     padding: 0px;
     width: var(--nav-icon-width);
     height: var(--nav-icon-width);
@@ -253,7 +263,7 @@ a:hover {
     justify-content: center;
     justify-items: center;
     align-content: center;
-    transition: bottom 0.5s, display 0.5s;
+    transition: bottom 0.5s, display 0.5s, opacity 0.5s;
   }
 
   #to-top-icon {
@@ -335,9 +345,10 @@ a:hover {
 
 @media (min-width: 950px) {
   :root {
-    --margin: 0px;
+    --margin: calc((100vw - (var(--column-width) * var(--columns)) - (var(--gutter) * (var(--columns) - 1))) / (var(--columns)));
     --gutter: 16px;
     --columns: 12;
+    /* --nav-icon-width: 10vw; */
     --column-width: 48px;
   }
 
@@ -352,7 +363,6 @@ a:hover {
 
 @media (min-width: 1500px) {
   :root {
-    --margin: 0px;
     --gutter: 24px;
     --column-width: 64px;
   }

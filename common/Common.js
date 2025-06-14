@@ -105,3 +105,33 @@ document.querySelectorAll(".iconRaw").forEach((icon) => {
     window.open(icon.src.replace("images/", "images_raw/").replace(".webp", ".png"), "_self");
   });
 });
+
+// Scrolling based opacity 6.12.25
+let lastScrollY = window.scrollY;
+
+function handleScrollOpacity() {
+  const glassBtns = document.querySelectorAll('.glass-btn');
+
+  const isScrollingDown = window.scrollY > lastScrollY;
+  lastScrollY = window.scrollY;
+
+  glassBtns.forEach(element =>
+    element.classList.toggle('glass-btn-unfocused', isScrollingDown)
+  );
+}
+
+function clearUnfocusedOnPage() {
+  document
+    .querySelectorAll('.glass-btn-unfocused')
+    .forEach(element => element.classList.remove('glass-btn-unfocused'));
+}
+document.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener('scroll', handleScrollOpacity);
+  ['mouseover', 'focusin', 'click'].forEach(eventType => {
+    document.addEventListener(eventType, event => {
+      if (event.target.closest('.glass-btn-unfocused')) {
+        clearUnfocusedOnPage();
+      }
+    });
+  });
+});

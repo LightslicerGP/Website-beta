@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <script>
+      debug = true;
+
+      function cleanString(inputString) {
+        let output = "";
+        for (let i = 0; i < inputString.length; i++) {
+          const c = inputString[i];
+          if (c.charCodeAt(0) > 128 || c === "\\" || c === "?") {
+            output += "_";
+          } else {
+            output += c;
+          }
+        }
+        return output;
+      }
+
+      async function search() {
+        let apiUrl = document.getElementById("api-url").value;
+
+        if (!apiUrl) {
+          alert("Please enter an API URL.");
+          return;
+        }
+        if (!apiUrl.startsWith("https://itunes.apple.com/search?term=")) {
+          apiUrl = cleanString(apiUrl);
+          apiUrl = apiUrl.replaceAll("&", "and").replaceAll(" ", "%20");
+          apiUrl = "https://itunes.apple.com/search?term=" + apiUrl;
+        }
+
+        if (debug) console.log("URL:", apiUrl);
+
+        // Clear existing results
+        document.getElementById("results-container").innerHTML = "";
+
+        try {
+          let response = await fetch(apiUrl);
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          let data = await response.json();
+          if (debug) console.log("response", data);
+
+          resultNum = 0;
+          data.results.forEach((item) => {
+            if (debug) console.log(item);
+
+            const newDiv = document.createElement("div");
+            newDiv.style.backgroundColor = "#222";
+            newDiv.style.marginBottom = "8px";
+            newDiv.style.padding = "8px";
+            newDiv.style.borderRadius = "16px";
+            newDiv.style.display = "flex";
+            newDiv.style.justifyContent = "flex-start";
+            newDiv.style.alignItems = "center";
+
+            const img = document.createElement("img");
+            img.src = item.artworkUrl100.replaceAll("100", "5000"); //"100x100bb.jpg"
+            img.alt = item.trackName;
+            img.style.width = "128px";
+            img.style.height = "128px";
+            img.style.borderRadius = "8px";
+            img.style.marginRight = "8px";
+
+            const infoDiv = document.createElement("div");
+            infoDiv.style.display = "block";
+            infoDiv.style.color = "white";
+
+            const titleText = document.createElement("p");
+            titleText.textContent = `Title: ${item.trackName}`;
+            titleText.style.margin = "0";
+
+            const artistText = document.createElement("p");
+            artistText.textContent = `Artist: ${item.artistName}`;
+            artistText.style.margin = "0";
+
+            const albumText = document.createElement("p");
+            albumText.textContent = `Album: ${item.collectionName}`;
+            albumText.style.margin = "0";
+
+            const resultText = document.createElement("p");
+            resultText.textContent = `Item Number: ${resultNum}`;
+            resultText.style.margin = "0";
+
+            infoDiv.appendChild(titleText);
+            infoDiv.appendChild(artistText);
+            infoDiv.appendChild(albumText);
+            infoDiv.appendChild(resultText);
+
+            newDiv.appendChild(img);
+            newDiv.appendChild(infoDiv);
+
+            document.getElementById("results-container").appendChild(newDiv);
+
+            resultNum++;
+          });
+        } catch (error) {
+          alert("Error fetching data: " + error);
+        }
+      }
+
+      // Add event listener for enter key
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("api-url").addEventListener("keypress", function (event) {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            search();
+          }
+        });
+      });
+    </script>
+
+    <style>
+      body {
+        margin: 0;
+        background-color: black;
+        font-family: "Montserrat", sans-serif;
+      }
+      h1 {
+        padding: 16px;
+        margin: 16px;
+        background-color: white;
+        border-radius: 16px;
+        color: black;
+      }
+      h1 > p {
+        font-size: 16px;
+        margin: 0;
+        font-weight: 500;
+        color: gray;
+      }
+      input {
+        width: calc(100vw - 130px);
+        padding: 8px;
+        margin-bottom: 16px;
+        margin-left: 16px;
+        border-radius: 32px;
+        border: none;
+        background-color: #222;
+        color: white;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      input:focus-visible {
+        outline: 2px solid #00ff80;
+      }
+
+      button {
+        padding: 8px 16px;
+        background: #0080ff;
+        color: black;
+        border: none;
+        cursor: pointer;
+        border-radius: 32px;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      #results-container img {
+        width: 100px;
+        height: 100px;
+        border-radius: 8px;
+        margin-right: 10px;
+      }
+
+      #results-container div {
+        margin-left: 16px;
+        margin-right: 16px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>
+      Search for Music
+      <p>By LightslicerGP</p>
+    </h1>
+    <input type="text" id="api-url" placeholder="Enter API Url from Console.txt or type in a custom search query" />
+    <button onclick="search()">Search</button>
+    <div id="results-container"></div>
+  </body>
+</html>

@@ -4,35 +4,35 @@ fadeInOffset = {
   },
 };
 
-const textMapping = {
-  300: "mobile small",
-  380: "mobile medium",
-  400: "mobile large",
-  700: "tablet small",
-  800: "tablet medium",
-  900: "tablet large",
-  950: "desktop small",
-  1500: "desktop medium",
-  2000: "desktop large",
-  2500: "desktop extra-large",
-};
+// const textMapping = {
+//   300: "mobile small",
+//   380: "mobile medium",
+//   400: "mobile large",
+//   700: "tablet small",
+//   800: "tablet medium",
+//   900: "tablet large",
+//   950: "desktop small",
+//   1500: "desktop medium",
+//   2000: "desktop large",
+//   2500: "desktop extra-large",
+// };
 
-function updateTextBasedOnWidth() {
-  const pElement = document.getElementById("temp-responsive");
-  const width = window.innerWidth;
+// function updateTextBasedOnWidth() {
+//   const pElement = document.getElementById("temp-responsive");
+//   const width = window.innerWidth;
 
-  let newText = "not in json: " + width + "px";
-  for (let key in textMapping) {
-    if (width >= key) {
-      newText = textMapping[key] + " " + key;
-    }
-  }
-  pElement.textContent = newText;
-}
+//   let newText = "not in json: " + width + "px";
+//   for (let key in textMapping) {
+//     if (width >= key) {
+//       newText = textMapping[key] + " " + key;
+//     }
+//   }
+//   pElement.textContent = newText;
+// }
 
-window.addEventListener("resize", updateTextBasedOnWidth);
+// window.addEventListener("resize", updateTextBasedOnWidth);
 
-updateTextBasedOnWidth();
+// updateTextBasedOnWidth();
 
 // section 1
 
@@ -43,7 +43,6 @@ ScrollReveal().reveal("#s1Text", fadeInOffset);
 ScrollReveal().reveal("#s2LiveData", fadeInOffset);
 
 ScrollReveal().reveal("#s2SubLiveData", fadeInOffset);
-// document.getElementById("s2SubLiveData").style.backgroundSize = `${window.screen.height}px`;
 
 ScrollReveal().reveal("#s2Summary", fadeInOffset);
 
@@ -51,6 +50,9 @@ ScrollReveal().reveal("#s2Summary", fadeInOffset);
 const youtubeKey = 'AIzaSyALqIoHfT_TGIAm3cGfblgX2F0PmtqRxuA'
 const youtubeUser = 'UCiGIp50poRZRIAuRt604uRg'
 */
+
+let retryCount = 0;
+const MAX_RETRIES = 3;
 
 let getYTInfo = () => {
   fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCiGIp50poRZRIAuRt604uRg&key=AIzaSyALqIoHfT_TGIAm3cGfblgX2F0PmtqRxuA`)
@@ -65,15 +67,26 @@ let getYTInfo = () => {
     // });
     .then((data) => {
       const stats = data.items[0].statistics;
+      console.log(data)
       animateCountUp(document.getElementById("s2SubCount"), parseInt(stats.subscriberCount, 10));
       animateCountUp(document.getElementById("s2ViewCount"), parseInt(stats.viewCount, 10));
       animateCountUp(document.getElementById("s2VideoCount"), parseInt(stats.videoCount, 10));
+      retryCount = 0;
     })
     .catch((error) => {
       console.error("Error fetching YouTube data:", error);
-      document.getElementById("s2SubCount").textContent = "N/A";
-      document.getElementById("s2ViewCount").textContent = "N/A";
-      document.getElementById("s2VideoCount").textContent = "N/A";
+      retryCount++;
+
+      if (retryCount < MAX_RETRIES) {
+        // setTimeout(() => {
+        getYTInfo();
+        // }, 500);
+      } else {
+        // If all retries failed, animate to current value as of 6.7.25
+        animateCountUp(document.getElementById("s2SubCount"), 475);
+        animateCountUp(document.getElementById("s2ViewCount"), 71634);
+        animateCountUp(document.getElementById("s2VideoCount"), 190);
+      }
     });
 };
 
@@ -127,22 +140,36 @@ function easeOutQuint(t) {
 // section 3
 
 function section3Height() {
-  document.documentElement.style.setProperty("--vertical-offset", `0px`);
-  document.documentElement.style.setProperty("--vertical-total-height", `0px`);
+  document.documentElement.style.setProperty("--s3-vertical-offset", `0px`);
+  document.documentElement.style.setProperty("--s3-vertical-total-height", `0px`);
+  const textBoxHeight = document.querySelector("#s3Text").offsetHeight;
 
-  const textboxheight = document.querySelector("#s3Text").offsetHeight;
-  const imageHeight = (200 / 300) * window.innerWidth;
+  if (window.innerWidth >= 700) {
+    console.log("tablet")
 
-  // console.log(textboxheight + " " + imageHeight + " " + window.innerWidth);
+    const imageHeight = (300 / 700) * window.innerWidth;
 
-  document.documentElement.style.setProperty("--vertical-offset", `${textboxheight + 32}px`);
-  document.documentElement.style.setProperty("--vertical-total-height", `${textboxheight + 32 + imageHeight}px`);
+    // if (textBoxHeight) // if the text box ever gets taller than the image do this
+
+    document.documentElement.style.setProperty("--s3-vertical-offset", `${textBoxHeight + 32}px`);
+    document.documentElement.style.setProperty("--s3-vertical-total-height", `${imageHeight}px`);
+    document.documentElement.style.setProperty("--s3-img-size", `${imageHeight}px`);
+  }
+  else if (window.innerWidth >= 300) {
+    console.log("phone")
+
+    const imageHeight = (200 / 300) * window.innerWidth;
+
+    document.documentElement.style.setProperty("--s3-vertical-offset", `${textBoxHeight + 32}px`);
+    document.documentElement.style.setProperty("--s3-vertical-total-height", `${textBoxHeight + 32 + imageHeight}px`);
+    document.documentElement.style.setProperty("--s3-img-size", `${imageHeight}px`);
+  }
 }
 
 window.addEventListener("resize", section3Height);
 window.addEventListener("DOMContentLoaded", section3Height);
 
-updateTextBasedOnWidth();
+// updateTextBasedOnWidth();
 
 ScrollReveal().reveal("#s3Text", fadeInOffset);
 

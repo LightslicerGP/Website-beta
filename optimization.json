@@ -1,0 +1,242 @@
+[
+  {
+    "path": "images_raw\\Logo_v4.8.png",
+    "quality": 90,
+    "size": [
+      2160,
+      2160
+    ]
+  },
+  {
+    "path": "images_raw\\home\\CalculatorCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\CalendarCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\CameraCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\CameraRawCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\ClockCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\ContactsCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\DailyBoardCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\EmailCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\FilesCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\FinderCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\FlowCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\GalleryCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\GamesCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\InternetCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\MessageCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\MusicCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\NotesCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\PDFCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\PhoneCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\S20 Wallpaper.png",
+    "quality": 90,
+    "size": [
+      3200,
+      3200
+    ]
+  },
+  {
+    "path": "images_raw\\home\\SecureFolderCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\SettingsCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\SimplyCubed.png",
+    "quality": 90,
+    "size": [
+      1080,
+      1080
+    ]
+  },
+  {
+    "path": "images_raw\\home\\SimplyCubed_Monument.png",
+    "quality": 90,
+    "size": [
+      2400,
+      1080
+    ]
+  },
+  {
+    "path": "images_raw\\home\\SimplySkin_Both.png",
+    "quality": 90,
+    "size": [
+      3840,
+      2160
+    ]
+  },
+  {
+    "path": "images_raw\\home\\SimplySurvival_Entrance.png",
+    "quality": 90,
+    "size": [
+      2400,
+      1080
+    ]
+  },
+  {
+    "path": "images_raw\\home\\TipsCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\VideoCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "images_raw\\home\\VoiceRecorderCustom.png",
+    "quality": 90,
+    "size": [
+      256,
+      256
+    ]
+  }
+]
